@@ -6,9 +6,9 @@ const Header = () => {
   return (
     <>
       <AppBar position="static" sx={{ backgroundColor: "white", boxShadow: "none" }}>
-        <Toolbar sx={{ width: "100%", display: "flex", justifyContent: "space-between" }}>
+        <Toolbar sx={{ width: "98%", display: "flex", justifyContent: "space-between" }}>
 
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1, marginLeft: 2 }}>
             <Box
               sx={{
                 width: 40,
