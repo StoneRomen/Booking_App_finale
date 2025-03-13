@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Field } from "react-final-form";
 import axios from "axios";
-import { AppBar, Toolbar, Typography, Button, MenuItem, TextField, Box, IconButton } from "@mui/material";
+import { Typography, Button, MenuItem, TextField, Box, IconButton, InputAdornment } from "@mui/material";
 
 const Main = () => {
   const [destinations, setDestinations] = useState([]);
@@ -23,7 +23,7 @@ const Main = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 800, margin: "auto", padding: 3 }}>
+    <Box sx={{ width: "80%", margin: "auto", marginTop: "10px", padding: 2, boxShadow: "0px 4px 10px rgba(255, 165, 0, 0.8)", borderRadius: 2, backgroundColor: "white" }}>
       <Form
         onSubmit={onSubmit}
         render={({ handleSubmit }) => (
@@ -37,7 +37,7 @@ const Main = () => {
                   {...input}
                   fullWidth
                   required
-                  sx={{ marginTop: 2 }}
+                  sx={{ marginTop: 2, flex: 2 }}
                 >
                   {destinations.map((dest) => (
                     <MenuItem key={dest.id} value={dest.value}>{dest.label}</MenuItem>
@@ -46,35 +46,41 @@ const Main = () => {
               )}
             </Field>
 
-            {/* Check-in date */}
-            <Field name="checkIn">
-              {({ input }) => (
-                <TextField
-                  label="Check-in Date"
-                  type="date"
-                  {...input}
-                  fullWidth
-                  required
-                  sx={{ marginTop: 2 }}
-                  InputLabelProps={{ shrink: true }}
-                />
-              )}
-            </Field>
+              {/* Check-in date */}
+              <Field name="checkIn">
+                {({ input }) => (
+                  <TextField
+                    type="date"
+                    {...input}
+                    required
+                    sx={{ flex: 2 }}
+                    InputLabelProps={{ shrink: false }}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">Check in</InputAdornment>
+                      ),
+                    }}
+                  />
+                )}
+              </Field>
 
-            {/* Check-out date */}
-            <Field name="checkOut">
-              {({ input }) => (
-                <TextField
-                  label="Check-out Date"
-                  type="date"
-                  {...input}
-                  fullWidth
-                  required
-                  sx={{ marginTop: 2 }}
-                  InputLabelProps={{ shrink: true }}
-                />
-              )}
-            </Field>
+              {/* Check-out date */}
+              <Field name="checkOut">
+                {({ input }) => (
+                  <TextField
+                    type="date"
+                    {...input}
+                    required
+                    sx={{ flex: 2 }}
+                    InputLabelProps={{ shrink: false }}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">Check out</InputAdornment>
+                      ),
+                    }}
+                  />
+                )}
+              </Field>
 
             {/* Adults & Children */}
             <Box sx={{ display: "flex", justifyContent: "space-between", marginTop: 2 }}>
@@ -96,16 +102,13 @@ const Main = () => {
               type="submit"
               variant="contained"
               fullWidth
-              sx={{ backgroundColor: "yellow", color: "black", marginTop: 3 }}
+              sx={{ backgroundColor: "yellow", color: "black", marginTop: 3, flex: 0.5 }}
             >
               Submit
             </Button>
           </form>
         )}
       />
-      <Typography variant="h4" textAlign="center" sx={{ marginTop: 2 }}>
-        Book Your Hotel
-      </Typography>
     </Box>
   );
 };
