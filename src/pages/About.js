@@ -28,9 +28,7 @@ const About = () => {
           </ul>
         </Box>
 
-        <Typography variant="body1" sx={{ mt: 2 }}>
-          At <strong>Booking App</strong>, we believe in making travel effortless. Start your journey today by exploring our hotel options and booking your ideal stay with just a few clicks! 🌍🏨✨
-        </Typography>
+        
       </Paper>
     </Container>
   );
