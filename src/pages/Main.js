@@ -23,6 +23,7 @@ const Main = () => {
   };
 
   return (
+    <>
     <Box sx={{ width: "80%", margin: "auto", marginTop: "10px", padding: 2, boxShadow: "0px 4px 10px rgba(255, 165, 0, 0.8)", borderRadius: 2, backgroundColor: "white" }}>
       <Form
         onSubmit={onSubmit}
@@ -95,21 +96,30 @@ const Main = () => {
                 <IconButton onClick={() => setChildren(children + 1)}>➕</IconButton>
                 <IconButton onClick={() => children > 0 && setChildren(children - 1)}>➖</IconButton>
               </Box>
-            </Box>
-
+            
             {/* Submit button */}
             <Button
               type="submit"
               variant="contained"
               fullWidth
-              sx={{ backgroundColor: "yellow", color: "black", marginTop: 3, flex: 0.5 }}
-            >
+              sx={{ backgroundColor: "orange", color: "white", marginTop: 3, flex: 0.5, height: 56 }}>
               Submit
             </Button>
+          </Box>
           </form>
         )}
       />
-    </Box>
+   </Box>
+         <Box sx={{ width: "70%", margin: "auto", marginTop: "20px", textAlign: "left" }}>
+         <Typography variant="h3" fontWeight="bold">
+           <span style={{ color: "black" }}>Travel With</span>{" "}
+           <span style={{ color: "orange" }}>Booking</span>
+         </Typography>
+         <Typography variant="body1" sx={{ mt: 2 }}>
+                   At <strong>Booking App</strong>, we believe in making travel effortless. Start your journey today by exploring our hotel options and booking your ideal stay with just a few clicks! Whether you're planning a family vacation, a romantic getaway, or a business trip, we've got you covered with a wide range of accommodations to suit your needs.
+                 </Typography>
+       </Box>
+     </>
   );
 };
 
