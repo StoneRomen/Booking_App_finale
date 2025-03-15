@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import axios from "axios";
-import { FETCH_HOTELS_REQUEST, fetchHotelsSuccess, fetchHotelsFailure } from "../redux/hotelsSlice";
+import { fetchHotelsRequest, fetchHotelsSuccess, fetchHotelsFailure } from "../redux/hotelsSlice";
 
 function* fetchHotelsSaga(action) {
     try {
@@ -12,5 +12,5 @@ function* fetchHotelsSaga(action) {
 }
 
 export function* watchHotelsSaga() {
-    yield takeLatest(FETCH_HOTELS_REQUEST, fetchHotelsSaga);
+    yield takeLatest(fetchHotelsRequest, fetchHotelsSaga);
 }
